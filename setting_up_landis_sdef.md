@@ -5,8 +5,11 @@ The .sdef file in this folder (landis_necn69.sdef) is an example .sdef that runs
 ### Notes on creating the .sdef file: 
 - Structure generally consists of downloading from github, unzipping, compiling/putting dlls in the right place, and setting up file structure to bind/ for outputs
 - Permissions must be added to the top of the script because landis runs from the root 
+
     %post
+
     chmod -R 777 /root
+    
 - I didn't make any changes to the core model.
 - Extension releases (ie necn, scrpple, ect) will not work without updating the .csproj file. Steps: 
     - Fork the extension
