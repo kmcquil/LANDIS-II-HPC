@@ -9,7 +9,7 @@ Steps:
 ```
     vagrant upload "G:/My Drive/Chapter3/Calibration/Models/Landis_Flux_Tower_V1"
 ``` 
-2. Enter the VM go to the vm-singularity folder 
+2. Enter the VM through the vm-singularity folder 
 ```
     vagrant up && vagrant ssh 
 ```
@@ -38,7 +38,7 @@ Steps:
 #### Run the model interactively 
 ```
     # Request resources to interactively run landis through singularity and load singulairty
-    bsub -n 1 -W 30 -q sif -Is -eo err_sing1 tcsh #see below for link to reference argument documentation
+    bsub -n 1 -W 30 -q sif -Is tcsh 
     module load singularity
     singularity exec --bind ${PWD}:/landis --home ${PWD}:/home/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1 --cleanenv /usr/local/usrapps/klmarti3/landis/singularity_images/landis_necn69.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Scenario_Landscape.txt
 ```

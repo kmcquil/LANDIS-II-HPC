@@ -14,10 +14,12 @@ See setting_up_landis_sdef.txt for details on troubleshooting how to update that
 https://docs.sylabs.io/guides/3.5/admin-guide/installation.html#singularity-vagrant-box. 	
     1. Install git, virtual box, vagrant, and vagrant manager for windows 
     2. Open git and navigate to the folder of your choice and run the following commands: 
+    ```
 	    mkdir vm-singularity && cd vm-singularity
         # this is just in case you already had a vagrant file created 
 	    vagrant destroy &&  rm Vagrantfile 
 	    export VM=sylabs/singularity-3.5-ubuntu-bionic64 && vagrant init $VM && vagrant up && 	vagrant ssh
+    ```
 
 3. Now you are inside the virtual machine run these commands: 
 ```
