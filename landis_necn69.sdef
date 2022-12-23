@@ -1,6 +1,6 @@
 # Received file fall 2022 w/ last modification noted as: 31 May 2019 by Kelsey Ruckert <klr324@psu.edu>.
 # Modified 01 Dec 2022 by Kate Jones <kejones8@ncsu.edu>.
-# Slightly 19 Dec 2022 by Katie McQuillan <kmcquil@ncsu.edu>.
+# Modified to grab my modified version of NECN 19 Dec 2022 by Katie McQuillan <kmcquil@ncsu.edu>.
 
 Bootstrap: debootstrap
 OSVersion: focal
