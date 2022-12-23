@@ -1,1 +1,1 @@
-This repo contains instructions for using singularity to run landis-ii on the ncsu hpc.
+Notes for using singularity to run landis-ii on the ncsu hpc.
