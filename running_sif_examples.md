@@ -43,3 +43,40 @@ module load singularity
 singularity exec --bind ${PWD}:/landis --home ${PWD}:/home/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1 --cleanenv /usr/local/usrapps/klmarti3/landis/singularity_images/landis_necn69.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Scenario_Landscape.txt
 ```
 
+#### Run the model interactively through R 
+Request resources and load modules 
+```
+bsub -n 1 -W 120 -q sif -Is tcsh
+module load singularity
+module load R
+R
+```
+Interactively in R
+```
+setwd("/gpfs_common/share01/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1")
+system("singularity exec --bind ${PWD}:/landis --home ${PWD}:/home/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1 --cleanenv /usr/local/usrapps/klmarti3/landis/singularity_images/landis_necn69.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Scenario_Landscape.txt", wait=T, intern=T)
+print("Finished!")
+```
+
+#### Set up R environment on HPC for calibration using conda 
+```
+# on a login node
+conda env create --prefix /usr/local/usrapps/klmarti3/R-Bayesian-Calibration -f bayesian_calibration.yml
+
+# activate the environment, activate R, and install remotes and then install from github
+conda activate /usr/local/usrapps/klmarti3/R-Bayesian-Calibration
+R
+
+# in R, install the remaining packages 
+library(devtools)
+devtools::install_github(repo = "florianhartig/BayesianTools", subdir = "BayesianTools", dependencies = T, build_vignettes = T)
+
+```
+
+#### Run with MPI
+https://github.com/ncsu-landscape-dynamics/pynodelauncher
+```
+```
+
+
+

@@ -1,0 +1,15 @@
+name: R-Bayesian-Calibration 
+channels:
+  - conda-forge
+  - r
+dependencies:
+ - r-rgdal
+ - r-data.table
+ - r-raster
+ - r-sf
+ - r-devtools
+ - r-nloptr
+ - r-lme4
+ - r-DHARMa
+
+ # I installed BayesianTools within the activated environment since BayesianTools isn't available through CRAN
