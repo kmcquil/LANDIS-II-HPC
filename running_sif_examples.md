@@ -33,6 +33,9 @@ bhosts -X n3i3-4 # n3h3
 # Check if a node is owned by the root. Then check to see if root owns /scratch/singularity
 bsub -Is -n 1 -W 1 -m "n3i3-2" ls -l /scratch | grep singularity
 bsub -n 1 -W 1 -q sif -m "n3i3-2" -Is ls -l /scratch | grep sing
+
+# Check run time of the queue you need to use
+bqueues -l sif
 ```
 
 #### Run the model interactively 
