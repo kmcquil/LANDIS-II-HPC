@@ -43,7 +43,7 @@ bqueues -l sif
 # Request resources to interactively run landis through singularity and load singulairty
 bsub -n 1 -W 30 -q sif -Is tcsh 
 module load singularity
-singularity exec --bind ${PWD}:/landis --home ${PWD}:/home/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1 --cleanenv /usr/local/usrapps/klmarti3/landis/singularity_images/landis_necn69.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Scenario_Landscape.txt
+singularity exec --bind /home/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1:/landis --home /home/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1:${PWD} --cleanenv /usr/local/usrapps/klmarti3/landis/singularity_images/landis_necn69.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Scenario_Landscape.txt
 ```
 
 #### Run the model interactively through R 
@@ -56,8 +56,7 @@ R
 ```
 Interactively in R
 ```
-setwd("/gpfs_common/share01/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1")
-system("singularity exec --bind ${PWD}:/landis --home ${PWD}:/home/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1 --cleanenv /usr/local/usrapps/klmarti3/landis/singularity_images/landis_necn69.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Scenario_Landscape.txt", wait=T, intern=T)
+system("singularity exec --bind /home/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1:/landis --home /home/klmarti3/kmcquil/Chapter3/Calibration/Models/Landis_Flux_Tower_V1:${PWD}--cleanenv /usr/local/usrapps/klmarti3/landis/singularity_images/landis_necn69.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Scenario_Landscape.txt", wait=T, intern=T)
 print("Finished!")
 ```
 
