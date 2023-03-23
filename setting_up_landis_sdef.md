@@ -14,4 +14,5 @@ The .sdef file in this folder (landis_necn69.sdef) is an example .sdef that runs
     - Create a release 
     - Use the link to the release in the sdef 
     - These instructions are a little vague but its tough to describe how everything is supposed to match. It's sort of common sense and the compile errors produced by sdef are helpful so...
+- Make sure you are pulling the correct .dlls. The official landis repo for support dlls doesn't create releases. Instead, create a repo of the dlls you've been using to run the model locally and pull from that so you can be sure the dlls aren't changing each time you rebuild the sif from sdef
 - I have not gotten scrpple to work. I was getting a weird error related to the Ether .dll. But I don't need to run scrpple until spring so thats a problem for a later date. 

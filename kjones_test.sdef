@@ -1,6 +1,5 @@
 # Received file fall 2022 w/ last modification noted as: 31 May 2019 by Kelsey Ruckert <klr324@psu.edu>.
-# Modified 01 Dec 2022 by Kate Jones <kejones8@ncsu.edu>.
-# Modified to grab my modified version of NECN 19 Dec 2022 by Katie McQuillan <kmcquil@ncsu.edu>.
+# Last modified 01 Dec 2022 by Kate Jones <kejones8@ncsu.edu>.
 
 Bootstrap: debootstrap
 OSVersion: focal
@@ -26,7 +25,8 @@ apt-get clean
 rm packages-microsoft-prod.deb
 
 # LANDIS
-wget https://github.com/LANDIS-II-Foundation/Core-Model-v7-LINUX/archive/v7.zip
+#wget https://github.com/LANDIS-II-Foundation/Core-Model-v7-LINUX/archive/v7.zip
+wget https://github.com/kejones8/Core-Model-v7-LINUX/archive/refs/tags/v7.zip #made some necessary changes in core model instructions
 unzip v7.zip
 pwd
 ls
@@ -45,8 +45,8 @@ cd /Core-Model-v7-LINUX-7/; wget https://github.com/LANDIS-II-Foundation/Extensi
 cd /Core-Model-v7-LINUX-7/; wget https://github.com/LANDIS-II-Foundation/Extension-Biomass-Harvest/archive/v4.1.zip
 cd /Core-Model-v7-LINUX-7/; wget https://github.com/LANDIS-II-Foundation/Extension-LinearWind/archive/v2.0.zip
 cd /Core-Model-v7-LINUX-7/; wget https://github.com/LANDIS-II-Foundation/Extension-Local-Habitat-Suitability-Output/archive/v2.0.zip
-cd /Core-Model-v7-LINUX-7/; wget https://github.com/kmcquil/Extension-NECN-Succession-linux-hpc/archive/refs/tags/v6.9.zip
-#cd /Core-Model-v7-LINUX-7/; wget https://github.com/kmcquil/Extension-SCRPPLE/archive/refs/tags/v3.2.zip
+cd /Core-Model-v7-LINUX-7/; wget https://github.com/kejones8/Extension-NECN-Succession/archive/refs/tags/v6.9.zip
+cd /Core-Model-v7-LINUX-7/; wget https://github.com/kejones8/Extension-SCRPPLE/archive/refs/tags/v3.2.zip
 cd /Core-Model-v7-LINUX-7/; wget https://github.com/LANDIS-II-Foundation/Extension-Base-Harvest/archive/v4.1.zip
 cd /Core-Model-v7-LINUX-7/; wget https://github.com/LANDIS-II-Foundation/Extension-Output-Biomass/archive/refs/tags/v3.0.zip
 cd /Core-Model-v7-LINUX-7/; wget https://github.com/LANDIS-II-Foundation/Extension-Output-Biomass-By-Age/archive/v3.0.zip
@@ -61,7 +61,7 @@ cd /Core-Model-v7-LINUX-7/; unzip v4.1.zip
 cd /Core-Model-v7-LINUX-7/; unzip v2.0.zip 
 cd /Core-Model-v7-LINUX-7/; unzip v2.0.zip.1 #the additional .1 is necessary if there's already a v2.0.zip downloaded & unzipped
 cd /Core-Model-v7-LINUX-7/; unzip v6.9.zip
-#cd /Core-Model-v7-LINUX-7/; unzip v3.2.zip
+cd /Core-Model-v7-LINUX-7/; unzip v3.2.zip
 cd /Core-Model-v7-LINUX-7/; unzip v4.1.zip.1
 cd /Core-Model-v7-LINUX-7/; unzip v3.0.zip
 cd /Core-Model-v7-LINUX-7/; unzip v3.0.zip.1
@@ -96,16 +96,17 @@ cd /Core-Model-v7-LINUX-7/Extension-Local-Habitat-Suitability-Output-2.0/src; do
 cd /Core-Model-v7-LINUX-7/Extension-Local-Habitat-Suitability-Output-2.0/deploy/installer; dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Extensions.dll add "Local Habitat Output.txt" 
 cp /Core-Model-v7-LINUX-7/Extension-Local-Habitat-Suitability-Output-2.0/src/obj/Release/netstandard2.0/Landis.Extension.Output.LocalHabitat-v2.dll /Core-Model-v7-LINUX-7/build/extensions/.
 
-cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession-linux-hpc-6.9/src; sed -i -e 's/lib\\Landis.Library/..\\..\\Support-Library-Dlls-v7\\Landis.Library/g' NECN-succession.csproj 
-cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession-linux-hpc-6.9/src; sed -i -e 's/Landis.Library.Succession-InputAGB.dll/Landis.Library.Succession-v8.dll/g' NECN-succession.csproj 
-cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession-linux-hpc-6.9/src; dotnet build -c Release NECN-succession.csproj 
-cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession-linux-hpc-6.9/deploy/installer; dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Extensions.dll add "NECN_Succession 6.9.txt" 
+cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession-6.9/src; sed -i -e 's/lib\\Landis.Library/..\\..\\Support-Library-Dlls-v7\\Landis.Library/g' NECN-succession.csproj 
+cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession-6.9/src; sed -i -e 's/Landis.Library.Succession-InputAGB.dll/Landis.Library.Succession-v8.dll/g' NECN-succession.csproj 
+cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession-6.9/src; dotnet build -c Release NECN-succession.csproj 
+cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession-6.9/deploy/installer; dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Extensions.dll add "NECN_Succession 6.9.txt" 
 
-#cd /Core-Model-v7-LINUX-7/Extension-SCRPPLE-3.2/src; sed -i -e 's/lib\\Landis.Library/..\\..\\Support-Library-Dlls-v7\\Landis.Library/g' scrapple.csproj 
-#cd /Core-Model-v7-LINUX-7/Extension-SCRPPLE-3.2/src; sed -i -e 's/lib\\Ether/..\\..\\Support-Library-Dlls-v7\\Ether/g' scrapple.csproj 
-#cd /Core-Model-v7-LINUX-7/Extension-SCRPPLE-3.2/src; sed -i -e 's/Landis.Library.Climate-v3.dll/Landis.Library.Climate-v4.dll/g' scrapple.csproj 
-#cd /Core-Model-v7-LINUX-7/Extension-SCRPPLE-3.2/src; dotnet build -c Release scrapple.csproj 
-#cd /Core-Model-v7-LINUX-7/Extension-SCRPPLE-3.2/deploy/installer; dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Extensions.dll add "Scrapple 3.2.txt" 
+#this could need to get changed to -3.2?
+cd /Core-Model-v7-LINUX-7/Extension-SCRPPLE-3.0/src; sed -i -e 's/lib\\Landis.Library/..\\..\\Support-Library-Dlls-v7\\Landis.Library/g' scrapple.csproj 
+cd /Core-Model-v7-LINUX-7/Extension-SCRPPLE-3.0/src; sed -i -e 's/lib\\Ether/..\\..\\Support-Library-Dlls-v7\\Ether/g' scrapple.csproj 
+cd /Core-Model-v7-LINUX-7/Extension-SCRPPLE-3.0/src; sed -i -e 's/Landis.Library.Climate-v3.dll/Landis.Library.Climate-v4.dll/g' scrapple.csproj 
+cd /Core-Model-v7-LINUX-7/Extension-SCRPPLE-3.0/src; dotnet build -c Release scrapple.csproj 
+cd /Core-Model-v7-LINUX-7/Extension-SCRPPLE-3.0/deploy/installer; dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Extensions.dll add "Scrapple 3.0.txt" 
 
 cd /Core-Model-v7-LINUX-7/Extension-Base-Harvest-4.1/src; sed -i -e 's/lib\\Landis.Library/..\\..\\Support-Library-Dlls-v7\\Landis.Library/g' base-harvest.csproj 
 cd /Core-Model-v7-LINUX-7/Extension-Base-Harvest-4.1/src; dotnet build -c Release 

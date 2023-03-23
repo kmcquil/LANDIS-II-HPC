@@ -19,7 +19,6 @@ cd /home/vagrant/Landis_Flux_Tower_V1
 singularity exec --bind ${PWD}:/landis --home ${PWD}:/home/vagrant/Landis_Flux_Tower_V1 --cleanenv /home/vagrant/landis_necn69.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Scenario_Landscape.txt
 ```
 
-
 ## Running the model on HPC 
 
 ### Helpful commands to look at singularity resources on hpc 
