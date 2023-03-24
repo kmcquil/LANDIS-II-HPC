@@ -7,7 +7,7 @@ Use this to trouble shoot sdef set up before throwing it on hpc. Also useful for
 Steps: 
 1. Upload my small landis model 
 ```
-vagrant upload "G:/My Drive/Chapter3/Calibration/Models/Landis_Flux_Tower_V1"
+vagrant upload "G:/My Drive/Chapter3/Calibration/Models/HPC_Trial"
 ``` 
 2. Enter the VM through the vm-singularity folder 
 ```
@@ -15,8 +15,13 @@ vagrant up && vagrant ssh
 ```
 3. Run the model  
 ```
-cd /home/vagrant/Landis_Flux_Tower_V1
-singularity exec --bind ${PWD}:/landis --home ${PWD}:/home/vagrant/Landis_Flux_Tower_V1 --cleanenv /home/vagrant/landis_necn69.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Scenario_Landscape.txt
+singularity exec --bind /home/vagrant/HPC_Trial:/landis --home /home/vagrant/HPC_Trial:/landis --cleanenv /home/vagrant/landis_necn_69r.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Scenario_Landscape.txt
+```
+
+4. Run the model when it is set up for multiple runs that save to sub-folders. In this case, we have a folder with the model called 'HPC_Trial' and then a subfolder 'Run1' that has the Scenario_Landscape.txt. We want the results of the run to save to folder 'Run1'. 
+```
+singularity exec --bind /home/vagrant/HPC_Trial:/landis --bind /home/vagrant/HPC_Trial/Run1:${PWD} --cleanenv /home/vagrant/landis_necn_69r.sif dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Console.dll /landis/Run1/Scenario_Landscape.txt
+
 ```
 
 ## Running the model on HPC 
