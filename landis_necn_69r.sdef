@@ -42,10 +42,10 @@ cd /Core-Model-v7-LINUX-7/; unzip v7.zip
 cd /Core-Model-v7-LINUX-7/; cp /Core-Model-v7-LINUX-7/Support-Library-Dlls-v7-7/* /Core-Model-v7-LINUX-7/build/extensions/
 
 # GET NECN Extension 
-cd /Core-Model-v7-LINUX-7/; wget https://github.com/kmcquil/Extension-NECN-Succession_Linux/archive/refs/tags/v6.93.zip
-cd /Core-Model-v7-LINUX-7/; unzip v6.93.zip
-cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession_Linux-6.93/src; dotnet build -c Release NECN-succession.csproj 
-cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession_Linux-6.93/deploy/installer; dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Extensions.dll add "NECN_Succession 6.9.txt" 
+cd /Core-Model-v7-LINUX-7/; wget https://github.com/kmcquil/Extension-NECN-Succession_Linux/archive/refs/tags/v6.95.zip
+cd /Core-Model-v7-LINUX-7/; unzip v6.95.zip
+cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession_Linux-6.95/src; dotnet build -c Release NECN-succession.csproj 
+cd /Core-Model-v7-LINUX-7/Extension-NECN-Succession_Linux-6.95/deploy/installer; dotnet /Core-Model-v7-LINUX-7/build/Release/Landis.Extensions.dll add "NECN_Succession 6.9.txt" 
 
 # Set up some nice directories relevant to ACI. -p setting must be specified
 mkdir -p /storage/home
