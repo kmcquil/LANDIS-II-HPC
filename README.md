@@ -1,1 +1,1 @@
-Notes for using singularity to run landis-ii on the ncsu hpc.
+Documentation to use singularity to run LANDIS-II on NCSU HPC.

@@ -1,5 +1,5 @@
 #!/bin/tcsh
-#BSUB -n 32  # number of MPI processes
+#BSUB -n 30  # number of MPI processes
 #BSUB -W 12:00  # maximum time
 #BSUB -R "rusage[mem=25GB]"
 #BSUB -q sif

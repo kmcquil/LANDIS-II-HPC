@@ -79,8 +79,11 @@ devtools::install_github(repo = "florianhartig/BayesianTools", subdir = "Bayesia
 
 ```
 
-#### Run with MPI
+#### Submit multiple model runs at once to run in parallel using MPI 
+The following link has instructions to install pynodelauncher, a helpful program to use MPI in a smart/easy way. 
 https://github.com/ncsu-landscape-dynamics/pynodelauncher
+
+The /Example_Batch_Submit_MPI folder has examples of a submission script and text file with commands. 
 ```
 ```
 

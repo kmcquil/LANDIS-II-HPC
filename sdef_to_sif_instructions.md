@@ -45,7 +45,7 @@ sudo singularity build --notest landis_necn69.sif landis_necn69.sdef
 cp -p landis_necn69.sif /vagrant
 ```
 
-7. Put the .sif on hpc 
+7. Put the .sif on hpc in usrapps. Each user needs to request space from NCSU HPC office. 
 ```
 scp landis_necn69.sif kmcquil@login.hpc.ncsu.edu:/usr/local/usrapps/klmarti3/landis/singularity_images
 ```
